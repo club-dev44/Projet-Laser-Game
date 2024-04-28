@@ -1,3 +1,4 @@
+//importation des librairies
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
@@ -8,6 +9,7 @@
 #include <Adafruit_SSD1306.h>
 #include "RGBLed.h"
 
+//définition des ports
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define IR_PIN 4
@@ -31,6 +33,7 @@ int lastButtonState3 = HIGH;  // Ajout d'une variable pour suivre l'état préc�
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1); // Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
 
+//déclaration et initiations des variables
 int vie = 5;
 int balle = 10;
 int fin = 5;
@@ -80,7 +83,7 @@ void setup() {
 void loop() {
   if (vie >0)
   {
-    if (irrecv.decode(&results)) {
+    if (irrecv.decode(&results)) { //Si une valeur est reçue
       Serial.println(results.value, HEX);
       irrecv.resume(); // Receive the next value
       digitalWrite(ledPin, HIGH);
