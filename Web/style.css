@@ -1,0 +1,11 @@
+body {
+    color: white; /* Texte blanc */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    margin: 0; /* Supprime les marges par défaut du navigateur */
+    padding: 0; /* Supprime les espaces de remplissage par défaut du navigateur */
+}
+
+h1 {
+    color: white;
+    font-size: 36px; /* Taille de la police pour le titre */
+}
