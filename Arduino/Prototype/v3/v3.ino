@@ -1,3 +1,4 @@
+// Importation des bibliothèques
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
@@ -8,17 +9,18 @@
 #include <Adafruit_SSD1306.h>
 #include "RGBLed.h"
 
+#définition des ports
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define IR_PIN 4
 int RECV_PIN = 2;
 int ledPin = 12;
-const int buttonPin1 = 27;
-const int buttonPin2 = 32;
-const int buttonPin3 = 33;
+const int buttonPin1 = 27; //bouton pour tirer avec code 0x700000
+const int buttonPin2 = 32; //bouton pour tirer avec code 0x700100
+const int buttonPin3 = 33; //bouton pour recharger
 
-RGBLed led1(14, 13, 12);
-RGBLed led2(19, 18, 17);
+RGBLed led1(14, 13, 12); //led de derrière
+RGBLed led2(19, 18, 17); //led de devant
 
 int buttonState1 = 0;
 int lastButtonState1 = HIGH;  // Ajout d'une variable pour suivre l'état précédent du bouton
@@ -40,6 +42,7 @@ IRrecv irrecv(RECV_PIN);
 
 decode_results results;
 
+//déclaration des paramètres de bases
 void setup() {
   irsend.begin();
   irsend.enableIROut(38);  // Set the frequency to 38 kHz
@@ -77,9 +80,11 @@ void setup() {
   led1.setColor(0, 27, 27);
 }
 
+//boucle principale
 void loop() {
   if (vie >0)
   {
+    //on vérifie si on a reçu un signal infrarouge
     if (irrecv.decode(&results)) {
       Serial.println(results.value, HEX);
       irrecv.resume(); // Receive the next value
@@ -131,6 +136,7 @@ void loop() {
     digitalWrite(ledPin, LOW);
     if (balle >0)
     {
+      //on tire avec les boutons
       buttonState1 = digitalRead(buttonPin1);  // Read the button state here
       if (buttonState1 == LOW && lastButtonState1 == HIGH) {  // Vérifiez si l'état du bouton est passé de HIGH à LOW
         irsend.sendNEC(0x700000, 32);
@@ -194,6 +200,7 @@ void loop() {
       delay(50);  // Reduced delay*/
          
     }
+      //on recharge
       buttonState3 = digitalRead(buttonPin3);  // Read the button state here
     if (buttonState3 == LOW && lastButtonState3 == HIGH) {  // Vérifiez si l'état du bouton est passé de HIGH à LOW
       //irsend.sendNEC(0x700200, 32);
