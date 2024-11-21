@@ -1,3 +1,4 @@
+//importation des bibliothèques
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
@@ -8,6 +9,7 @@
 #include <Adafruit_SSD1306.h>
 #include "RGBLed.h"
 
+//Définitions des ports
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define IR_PIN 4
@@ -40,6 +42,7 @@ IRrecv irrecv(RECV_PIN);
 
 decode_results results;
 
+//Initialisation des valeurs
 void setup() {
   irsend.begin();
   irsend.enableIROut(38);  // Set the frequency to 38 kHz
@@ -77,14 +80,17 @@ void setup() {
   led1.setColor(0, 27, 27);
 }
 
+//Boucle infini
 void loop() {
   if (vie >0)
   {
+    //Détecte la réception du message
     if (irrecv.decode(&results)) {
       Serial.println(results.value, HEX);
       irrecv.resume(); // Receive the next value
       digitalWrite(ledPin, HIGH);
       //led.setColor(13, 0, 0);
+      //Code en fonction du message reçu
       if (results.value == 0x700200)
       {
         //results.value = 0x000000;
@@ -154,6 +160,7 @@ void loop() {
     }
     //delay(100);
     digitalWrite(ledPin, LOW);
+    //tire
     if (balle >0)
     {
       buttonState1 = digitalRead(buttonPin1);  // Read the button state here
