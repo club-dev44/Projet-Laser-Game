@@ -32,8 +32,8 @@ Pour uiliser notre projet, il faut instaler arduino ide et installer les bibliot
 - pushButton V1.0.1
 
 Le code actuel est sur la v4. Les fonctions son sont sur la version olympiade.
-A faire,
-Une v5 :
+
+A faire, une v5 :
 - avec la v4 et le son
 - commenté
 - optimiser
