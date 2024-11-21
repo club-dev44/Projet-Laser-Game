@@ -36,7 +36,7 @@ Le code actuel est sur la v4. Les fonctions son sont sur la version olympiade.
 A faire, une v5 :
 - avec la v4 et le son
 - commenté
-- optimiser
+- (optimiser)
 
 
 A faire, une v6 :
