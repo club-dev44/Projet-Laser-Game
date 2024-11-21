@@ -37,3 +37,8 @@ A faire, une v5 :
 - avec la v4 et le son
 - commenté
 - optimiser
+
+
+A faire, une v6 :
+- tableau joeur
+- (wifi)
