@@ -17,8 +17,8 @@ const int buttonPin1 = 27;
 const int buttonPin2 = 32;
 const int buttonPin3 = 33;
 
-RGBLed led1(14, 13, 12);
-RGBLed led2(19, 18, 17);
+RGBLed led2(14, 13, 12);
+RGBLed led1(19, 18, 17);
 
 int buttonState1 = 0;
 int lastButtonState1 = HIGH;  // Ajout d'une variable pour suivre l'état précédent du bouton
@@ -78,8 +78,10 @@ void setup() {
 }
 
 void loop() {
-  irsend.sendNEC(0x700100, 32);
+  irsend.sendNEC(0x700200, 32);
   led1.setColor(13, 13, 13);
-  delay (1000)
+  delay (1000);
+  led1.setColor(0,0,0);
+  delay (1000);
   
 }

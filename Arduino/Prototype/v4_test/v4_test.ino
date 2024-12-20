@@ -91,13 +91,13 @@ void loop() {
       irrecv.resume(); // Receive the next value
       digitalWrite(ledPin, HIGH);
       //led.setColor(13, 0, 0);
-      if (results.value == 0x700200)
+      if (results.value == 0x700300)
       {
         //results.value = 0x000000;
         vie = vie + 1;
       }
       else {
-      if (results.value == 0x700300)
+      if (results.value == 0x700200)
       {
         //results.value = 0x000000;
         vie = vie - 1;
@@ -132,29 +132,29 @@ void loop() {
           led1.setColor(0, 27, 27);
         }
       }
-      else {
-            display.clearDisplay();
-            display.setTextSize(2);
-            display.setTextColor(WHITE);
-            display.setCursor(15, 0);
-            // Display static text
-            display.println("David 30");
-            display.setTextSize(1);
-            display.setCursor(5, 25);
-            display.println("Code : " + String(results.value));
-            display.display(); 
+      // else {
+      //       display.clearDisplay();
+      //       display.setTextSize(2);
+      //       display.setTextColor(WHITE);
+      //       display.setCursor(15, 0);
+      //       // Display static text
+      //       display.println("David 30");
+      //       display.setTextSize(1);
+      //       display.setCursor(5, 25);
+      //       display.println("Code : " + String(results.value));
+      //       display.display(); 
 
-            led1.setColor(0, 27, 27);
-            led1.setColor(13, 13, 13);
-            led2.setColor(13, 13, 13);
-            delay(500);  // Reduced delay
-            led1.setColor(0, 0, 0);
-            led2.setColor(0, 0, 0);
-            delay(500);  // Reduced delay
-            led1.setColor(0, 27, 27);
+      //       led1.setColor(0, 27, 27);
+      //       led1.setColor(13, 13, 13);
+      //       led2.setColor(13, 13, 13);
+      //       delay(500);  // Reduced delay
+      //       led1.setColor(0, 0, 0);
+      //       led2.setColor(0, 0, 0);
+      //       delay(500);  // Reduced delay
+      //       led1.setColor(0, 27, 27);
 
-            delay(1000);
-        }
+      //       delay(1000);
+      //   }
       }
       
     }

@@ -90,7 +90,7 @@ void loop() {
       //led.setColor(13, 0, 0);
       if (results.value == 0x700000)
       {
-        //results.value = 0x000000;
+        //results.value = 0x000000;c:\Users\etudiant\Documents\Projet-Laser-Game\Arduino\Prototype\cible\cible.ino
         vie = vie + 1;
       }
       if (results.value == 0x700100)
